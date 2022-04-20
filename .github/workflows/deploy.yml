@@ -23,4 +23,4 @@ jobs:
 
       # SSH rsync実行
       - name: Deploy
-        run: rsync -avzc -e --delete -rsync-path="sudo rsync" "ssh -i ~/.ssh/id_rsa -p ${{ secrets.SSH_PORT }} -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no" ./  ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:/usr/share/nginx/bedrock/web/wp/wp-content/themes/tomologo/
+        run: sudo rsync -avzc -e --delete  "ssh -i ~/.ssh/id_rsa -p ${{ secrets.SSH_PORT }} -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no" ./  ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:/usr/share/nginx/bedrock/web/wp/wp-content/themes/tomologo/
