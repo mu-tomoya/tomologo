@@ -1,0 +1,26 @@
+ame: WordPress deploy
+
+on:
+  push:
+    branches: [ main ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      # SSHの秘密鍵を設定
+      - name: SSH Key Settings
+        run: |
+          mkdir -p ~/.ssh/
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+
+      # SSH rsync実行
+      - name: Deploy
+        run: rsync -ahvz -e "ssh -i ~/.ssh/id_rsa -p ${{ secrets.SSH_PORT }} ./ ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:/usr/share/nginx/bedrock/web/wp/wp-content/themes/tomologo/
