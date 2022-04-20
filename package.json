@@ -1,0 +1,14 @@
+{
+  "name": "tomologo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "yakuhanjp": "^3.4.1"
+  }
+}

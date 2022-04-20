@@ -1,0 +1,246 @@
+/*
+    Theme Name: TOMOLOGO
+    Author:TOMOYA
+    Version: 1.0.0
+*/
+
+:root {
+    --primary-color: #2CCEA6;
+    --secondary-color: #29B4F0;
+    --accent-color: #F96CAF;
+    --black: #3c3c3c;
+    --glay: #AEAEAE;
+}
+
+html {
+    font-size: 1.0rem;
+}
+
+body {
+    min-height: 100vh;
+    background: white;
+    color: var(--black);
+    font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", Arial, nc3Jp, sans-serif !important;
+}
+
+
+header {
+    display: grid;
+    justify-items: center;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    gap: 1rem;
+}
+
+p {
+    text-align: justify;
+}
+
+hr {
+    height: 1px;
+    background-color: var(--black);
+}
+
+.logo {
+    width: 80%;
+}
+
+.menu {
+    display: flex;
+    flex-direction: row;
+    margin-top: 1.5rem;
+}
+
+.menu--item {
+    width: calc((100vw - 1rem) / 3);
+    text-align: center;
+}
+
+.menu--item:not(:last-child) {
+    border-right: solid 2px var(--black);
+}
+
+.menu--item--link {
+    font-weight: bold;
+    font-size: 1rem;
+    line-height: 2.25rem;
+    padding: 0.3rem 0.5rem;
+}
+
+.menu--item--link:hover {
+    color: var(--primary-color);
+    border-bottom: solid 4px var(--primary-color);
+}
+
+.no-image {
+    object-fit: cover;
+    width: 20rem;
+    height: 20rem;
+    border-radius: 50%;
+
+}
+
+.wp-post-image {
+    object-fit: cover;
+    max-width: 20rem;
+    max-height: 20rem;
+    border-radius: 50%;
+}
+
+.articles {
+    margin: 4rem 2rem;
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    gap: 5rem;
+}
+
+.card {
+    width: 20rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-thumbnail:hover {
+    animation-name: hoverAnime;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+@keyframes hoverAnime {
+    from {
+        transform: scale(1, 1);
+    }
+
+    to {
+        transform: scale(1.2, 1.2);
+    }
+}
+
+.card-category {
+    display: inline-block;
+    padding: 0.1rem 0.7rem;
+    line-height: 2rem;
+    font-weight: 800;
+    font-size: 0.9rem;
+    text-align: center;
+    border-radius: 10%;
+    color: white;
+    letter-spacing: 0.1em;
+
+}
+
+.slug-uncategorized {
+    background-color: #AEAEAE;
+}
+
+.slug-game {
+    background-color: #51c4f5;
+}
+
+.slug-episord {
+    background-color: rgb(145, 238, 127);
+}
+
+.slug-drama {
+    background-color: #0e9b65;
+}
+
+.slug-animation {
+    background-color: rgb(243, 209, 18);
+}
+
+.slug-movie {
+    background-color: #7831eb;
+}
+
+.slug-manga {
+    background-color: #a34958;
+}
+
+.slug-book {
+    background-color: #2225eb;
+}
+
+.slug-thought {
+    background-color: #ee9b2d;
+}
+
+.card--title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+ul.page-numbers {
+    margin: 2rem 1rem;
+    display: flex;
+    max-width: 40rem;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+li>.page-numbers:not(.dots):not(.next):not(.prev) {
+    display: inline-block;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.125rem;
+    line-height: 2rem;
+}
+
+.page-numbers.dots {
+    line-height: 2rem;
+}
+
+.page-numbers.next,
+.page-numbers.prev {
+    padding: 0.5rem 0.5rem;
+    border-radius: 10%;
+    border: #d6d6d6 2px solid;
+    line-height: 2rem;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+}
+
+span.current {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+footer {
+    background-color: var(--primary-color);
+    display: grid;
+    justify-items: center;
+    gap: 3rem;
+    padding: 2rem;
+}
+
+.footer-nav {
+    display: flex;
+    flex-direction: row;
+    gap: 4rem;
+}
+
+.footer-nav-item {
+    color: white;
+    font-weight: 700;
+}
+
+@media screen and (min-width:768px) {
+    .logo {
+        width: auto;
+    }
+
+    .footer-nav {
+        gap: 7rem;
+    }
+}
