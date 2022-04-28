@@ -23,4 +23,4 @@ jobs:
 
       # SSH rsync実行
       - name: Deploy
-        run: rsync -avzc -e  "ssh -i ~/.ssh/id_rsa -p ${{ secrets.SSH_PORT }} -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no" ./  ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:/usr/share/nginx/bedrock/web/wp/wp-content/themes/tomologo/
+        run: rsync -avzc -e  "ssh -i ~/.ssh/id_rsa -p ${{ secrets.SSH_PORT }} -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no" ./  ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:/usr/bedrock/web/wp/wp-content/themes/tomologo/
