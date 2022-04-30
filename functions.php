@@ -27,7 +27,7 @@ function disable_rest_api() {
 //Twitter投稿
 function tweet_post_article($new_status, $old_status, $post) {
     if($new_status === 'publish' && $old_status !== 'publish' && $post->post_type === 'post') {
-        $tweet = "ブログを更新しました「{$post->post_title}」\n\n{$post->guid}";
+        $tweet = "ブログを更新しました「{$post->post_title}」\n\n" .get_permalink($post->ID);
         $twitter = new TwitterOAuth(TWITTER_CONSUMER_KEY,TWITTER_CONSUMER_SECRET,TWITTER_ACCESS_TOKEN_KEY,TWITTER_ACCESS_TOKEN_SECRET);
         $twitter->post('statuses/update', ['status' => $tweet]);
     }
