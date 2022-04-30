@@ -4,8 +4,8 @@
 <head>
     <?php get_header(); ?> 
     <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-        <meta name=”twitter:title” content="<?php the_title(); ?> | TOMOLOGO" />
-        <meta name=”twitter:image” content="<?php has_post_thumbnail()?the_post_thumbnail_url('large'):bloginfo('template_url').'/images/no-image.gif' ?>" />
+        <meta name="twitter:title" content="<?php the_title(); ?> | TOMOLOGO" />
+        <meta name="twitter:image" content="<?php has_post_thumbnail()?the_post_thumbnail_url('large'):bloginfo('template_url').'/images/no-image.gif' ?>" />
     <?php endwhile;  endif; ?>   
     <link rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/single.css">
 </head>
