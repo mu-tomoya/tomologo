@@ -2,7 +2,11 @@
 <html lang="ja">
 
 <head>
-    <?php get_header(); ?>
+    <?php get_header(); ?> 
+    <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+        <meta name=”twitter:title” content="<?php the_title(); ?> | TOMOLOGO" />
+        <meta name=”twitter:image” content="<?php has_post_thumbnail()?the_post_thumbnail_url('large'):bloginfo('template_url').'/images/no-image.gif' ?>" />
+    <?php endwhile;  endif; ?>   
     <link rel="stylesheet" href="<?php bloginfo('template_url') ?>/css/single.css">
 </head>
 
@@ -14,12 +18,11 @@
                 <?php if (has_post_thumbnail()) : ?>
                     <img class="single-thumbnail" src="<?php the_post_thumbnail_url('large'); ?>" alt="サムネイル">
                 <?php else : ?>
-                    <img class="single-no-image" src="<?php echo esc_url(get_template_directory_uri()); ?>/images/no-image.gif" alt="no-img" />
+                    <img class="single-no-image" src="<?php bloginfo('template_url') ?>/images/no-image.gif" alt="no-img" />
                 <?php endif; ?>
                 <h1 class="single-title"><?php the_title(); ?></h1>
                 <div class="single-content"><?php the_content(); ?></div>
-        <?php endwhile;
-        endif; ?>
+        <?php endwhile; endif; ?>
     </article>
     <?php get_template_part('include/footer') ?>
     <?php wp_footer(); ?>

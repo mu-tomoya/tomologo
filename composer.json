@@ -1,0 +1,16 @@
+{
+    "name": "tomoya/tomologo",
+    "autoload": {
+        "psr-4": {
+            "Tomoya\\Tomologo\\": "src/"
+        }
+    },
+    "require": {
+        "abraham/twitteroauth": "^4.0"
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true
+        }
+    }
+}
