@@ -227,7 +227,7 @@ footer {
 .footer-nav {
     display: flex;
     flex-direction: row;
-    gap: 4rem;
+    gap: 2rem;
 }
 
 .footer-nav-item {
