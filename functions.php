@@ -19,10 +19,7 @@ function custom_pagination_html($template)
     </nav>';
     return $template;
 }
-//REST API 無効化
-function disable_rest_api() {
-    return new WP_Error( 'disabled', __( 'REST API is disabled.' ), array( 'status' => rest_authorization_required_code() ) );
-}
+
 
 //Twitter投稿
 function tweet_post_article($new_status, $old_status, $post) {
@@ -33,6 +30,25 @@ function tweet_post_article($new_status, $old_status, $post) {
     }
 }
 
+function filter_rest_endpoints( $endpoints ) {
+    /* REST APIで投稿一覧取得を無効にする */
+    if ( isset( $endpoints['/wp/v2/posts'] ) ) {
+        unset( $endpoints['/wp/v2/posts'] );
+    }
+    /* REST APIで投稿記事取得（単記事）を無効にする */
+    if ( isset( $endpoints['/wp/v2/posts/(?P<id>[d]+)'] ) ) {
+        unset( $endpoints['/wp/v2/posts/(?P<id>[d]+)'] );
+    }
+    /* REST APIでユーザー情報取得を無効にする */
+    if ( isset( $endpoints['/wp/v2/users'] ) ) {
+        unset( $endpoints['/wp/v2/users'] );
+    }
+    if ( isset( $endpoints['/wp/v2/users/(?P<id>[d]+)'] ) ) {
+        unset( $endpoints['/wp/v2/users/(?P<id>[d]+)'] );
+    }
+    return $endpoints;
+}
+
 add_filter('navigation_markup_template', 'custom_pagination_html');
-//add_filter( 'rest_authentication_errors', 'disable_rest_api' );
 add_filter('transition_post_status','tweet_post_article',1,3);
+add_filter( 'rest_endpoints', 'filter_rest_endpoints', 10, 1 );
