@@ -3,6 +3,7 @@
 
 <head>
     <?php get_header(); ?>
+    <title>お問い合わせ | TOMOLOGO</title>
 </head>
 
 <body>

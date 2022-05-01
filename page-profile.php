@@ -3,6 +3,7 @@
 
 <head>
     <?php get_header(); ?>
+    <title>自己紹介 | TOMOLOGO</title>
 </head>
 
 <body>
