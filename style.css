@@ -86,7 +86,9 @@ hr {
     max-height: 20rem;
     border-radius: 50%;
 }
-
+.main {
+    min-height: 20rem;
+}
 .articles {
     margin: 4rem 2rem;
     display: grid;
