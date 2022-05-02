@@ -9,7 +9,6 @@
 </head>
 
 <body>
-    <?php wp_head(); ?>
     <?php esc_html(get_template_part('include/header')) ?>
     <main class="main">
         <div class="articles">
