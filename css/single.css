@@ -38,6 +38,23 @@ h6 {
     font-weight: bold;
 }
 
+.single-article h1 {
+    font-size: 2rem;
+}
+
+.single-article h2 {
+    font-size: 1.8rem;
+    border-bottom: var(--primary-color) solid 3px;
+    margin:2rem 0;
+    position: relative;
+}
+.single-article h2:before {
+    position:relative;
+    content: "●";
+    margin-right: 1rem;
+    color: var(--secondary-color);
+}
+
 .single-article p {
     margin-top: 2.5rem;
 }
