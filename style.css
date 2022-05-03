@@ -103,22 +103,6 @@ hr {
     flex-direction: column;
 }
 
-.card-thumbnail:hover {
-    animation-name: hoverAnime;
-    animation-duration: 0.5s;
-    animation-fill-mode: forwards;
-}
-
-
-@keyframes hoverAnime {
-    from {
-        transform: scale(1, 1);
-    }
-
-    to {
-        transform: scale(1.2, 1.2);
-    }
-}
 
 .card-category {
     display: inline-block;

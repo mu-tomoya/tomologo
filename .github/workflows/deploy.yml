@@ -14,17 +14,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      # SSHの秘密鍵を設定
       - name: SSH Key Settings
         run: |
           mkdir -p ~/.ssh/
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
 
-      # SSH rsync実行
       - name: Deploy
-        run: rsync -avzc -e  "ssh -i ~/.ssh/id_rsa -p ${{ secrets.SSH_PORT }} -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no" ./  ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:/usr/bedrock/web/app/themes/tomologo/
+        run: ssh -i ~/.ssh/id_rsa -p ${{ secrets.SSH_PORT }} -o StrictHostKeyChecking=no  ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }} 'cd /usr/bedrock/web/app/themes/tomologo/ && git pull origin master && composer install && yarn build'
         
-      # Composer 実行
-      - name: Composer
-        run: ssh -i ~/.ssh/id_rsa -p ${{ secrets.SSH_PORT }}  ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }} -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no  "cd /usr/bedrock/web/app/themes/tomologo and sudo composer install and sudo composer update" 
