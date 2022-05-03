@@ -1,7 +1,6 @@
 module.exports = {
   mode:process.env.NODE_ENV,
   entry:  __dirname + "/js/app.js",
-  watch:true,
   output: {
     path: __dirname,
     filename: "bundle.js"
