@@ -179,9 +179,9 @@ hr {
 ul.page-numbers {
     margin: 2rem 1rem;
     display: flex;
-    max-width: 40rem;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
+    gap:4rem;
 }
 
 li>.page-numbers:not(.dots):not(.next):not(.prev) {
