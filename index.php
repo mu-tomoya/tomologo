@@ -4,7 +4,7 @@
 <head>
     <?php get_header(); ?>
     <title>TOMOLOGO</title>
-    <meta name=”twitter:title” content="TOMOLOGO" />
+    <meta name="twitter:title" content="TOMOLOGO" />
     <meta name="twitter:image" content="<?php bloginfo('template_url')?>/images/logo.png"/>
     <script src="<?php bloginfo('template_url')?>/bundle.js" defer ></script>
 </head>
