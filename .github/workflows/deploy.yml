@@ -21,7 +21,6 @@ jobs:
         with:
           subdir: js
       - name: npm install
-        if: steps.diff.outputs.diff-count > 0
         run: | 
           npm install
       - name: webpack build
