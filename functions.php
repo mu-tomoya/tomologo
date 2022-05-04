@@ -77,17 +77,24 @@ function output_breadcrumb() {
         $cat = get_the_category( );
         if(isset($cat[0]->cat_ID)) $cat_id = $cat[0]->cat_ID;
         $cat_list = array();
+        $title = "";
         while($cat_id!=0) {
             $cat=get_category($cat_id);
             $cat_link = get_category_link($cat_id);
             array_unshift($cat_list,'<li><a href="'.$cat_link.'">'.$cat->name.'</a></li>');
             $cat_id = $cat->parent;
+            $title .= get_the_title($cat_id);
         }
         echo $home;
         foreach($cat_list as $value) {
             echo $value;
         }
-        the_title('<li>','</li>');
+        $limit = 10;
+        if (mb_strlen($title) > $limit) {
+            echo "<li>".mb_substr($title,0,$limit)."...</li>";
+        } else {
+            the_title('<li>','</li>');
+        }
     } 
     echo "</ul>";
 }

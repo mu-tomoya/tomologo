@@ -14,15 +14,16 @@
 <body>
     <?php wp_head(); ?>
     <?php get_template_part('include/header') ?>
-    <?php output_breadcrumb();?>
     <article class="single-article">
         <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+                <?php output_breadcrumb();?>
+                <time class="post-date">公開日：<?php the_time('Y/m/d');?></time>
+                <h1 class="single-title"><?php the_title(); ?></h1>
                 <?php if (has_post_thumbnail()) : ?>
                     <img class="single-thumbnail" src="<?php the_post_thumbnail_url(); ?>" alt="サムネイル">
                 <?php else : ?>
                     <img class="single-no-image" src="<?php bloginfo('template_url') ?>/images/no-image.gif" alt="no-img" />
                 <?php endif; ?>
-                <h1 class="single-title"><?php the_title(); ?></h1>
                 <div class="single-content"><?php the_content(); ?></div>
         <?php endwhile; endif; ?>
     </article>

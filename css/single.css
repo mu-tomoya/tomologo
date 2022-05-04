@@ -2,13 +2,20 @@
     display: grid;
     justify-items: center;
     line-height: 1.8;
-    margin: 2.5rem;
+    margin:auto 2rem;
+}
+.post-date {
+    font-size:1.0rem;
+    font-weight: 500;
+    color: var(--glay);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    justify-self: start;
 }
 
 .single-title {
     font-weight: 800;
     font-size: 1.5rem;
-    margin-top: 6rem;
     padding: 0 0.7rem;
     border-bottom: 4px solid var(--primary-color);
     margin-bottom: 2rem;
@@ -21,7 +28,7 @@
 
 .single-thumbnail {
     width: 100%;
-    max-width: 60rem;
+    max-width: 40rem;
 }
 
 .single-no-image {
@@ -64,11 +71,12 @@
 }
 .breadcrumb {
     margin-top: 2rem;
-    margin-left: 2.5rem;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
-    gap:2rem;
+    justify-content:start;
+    gap:0.8rem;
 }
 .breadcrumb li .home {
     padding-right: 8px;
@@ -80,9 +88,8 @@
 }
 .breadcrumb li:not(:first-child)::before {
     content:"»";
-    margin-right: 2rem;
+    margin-right: 1rem;
     line-height: 1.5rem;   
-    font-size: 1.5rem;
 }
 
 @media (min-width: 760px), print {
@@ -95,4 +102,12 @@
     .single-article p {
         font-size: 1.25rem;
     }
+   .breadcrumb {
+       margin-left: 2.5rem;
+       gap:2rem;
+   }
+    .breadcrumb li:not(:first-child)::before {
+        margin-right: 2rem;
+        font-size: 1.5rem;
+    }   
 }
