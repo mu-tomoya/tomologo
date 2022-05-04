@@ -18,7 +18,7 @@
     <article class="single-article">
         <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
                 <?php if (has_post_thumbnail()) : ?>
-                    <img class="single-thumbnail" src="<?php the_post_thumbnail_url('large'); ?>" alt="サムネイル">
+                    <img class="single-thumbnail" src="<?php the_post_thumbnail_url(); ?>" alt="サムネイル">
                 <?php else : ?>
                     <img class="single-no-image" src="<?php bloginfo('template_url') ?>/images/no-image.gif" alt="no-img" />
                 <?php endif; ?>
