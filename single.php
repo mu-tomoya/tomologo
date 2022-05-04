@@ -14,6 +14,7 @@
 <body>
     <?php wp_head(); ?>
     <?php get_template_part('include/header') ?>
+    <?php output_breadcrumb();?>
     <article class="single-article">
         <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
                 <?php if (has_post_thumbnail()) : ?>

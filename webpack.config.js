@@ -1,3 +1,5 @@
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+
 module.exports = {
   mode:process.env.NODE_ENV,
   entry:  __dirname + "/js/app.js",
@@ -15,6 +17,9 @@ module.exports = {
       }
     ]
   },
+  plugins: [
+    new UglifyJSPlugin()
+  ],
 
   resolve:{ 
       extensions:['.js','.ts']

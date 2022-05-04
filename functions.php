@@ -49,6 +49,49 @@ function filter_rest_endpoints( $endpoints ) {
     return $endpoints;
 }
 
+
+/**
+ * パンくずリスト
+ */
+
+function output_breadcrumb() {
+    $home = "<li><a href='".get_bloginfo('url')."'><i class='home fa-solid fa-house'></i>ホーム</a></li>";
+    echo '<ul class="breadcrumb">';
+    if(is_archive()) {
+        $cat = get_queried_object();
+        $cat_id = $cat->parent;
+        $cat_list = array();
+        while($cat_id != 0) {
+            $cat = get_category( $cat_id );
+            $cat_link = get_category_link( $cat_id );
+            array_unshift( $cat_list, '<li><a href="'.$cat_link.'">'.$cat->name.'</a></li>' );
+            $cat_id = $cat->parent;
+        }
+        echo $home;
+        foreach ($cat_list as $value) {
+            echo $value;
+        }
+        the_archive_title('<li>', '</li>');
+    }
+    elseif(is_single()) {
+        $cat = get_the_category( );
+        if(isset($cat[0]->cat_ID)) $cat_id = $cat[0]->cat_ID;
+        $cat_list = array();
+        while($cat_id!=0) {
+            $cat=get_category($cat_id);
+            $cat_link = get_category_link($cat_id);
+            array_unshift($cat_list,'<li><a href="'.$cat_link.'">'.$cat->name.'</a></li>');
+            $cat_id = $cat->parent;
+        }
+        echo $home;
+        foreach($cat_list as $value) {
+            echo $value;
+        }
+        the_title('<li>','</li>');
+    } 
+    echo "</ul>";
+}
+
 add_filter('navigation_markup_template', 'custom_pagination_html');
 add_filter('transition_post_status','tweet_post_article',1,3);
 add_filter( 'rest_endpoints', 'filter_rest_endpoints', 10, 1 );

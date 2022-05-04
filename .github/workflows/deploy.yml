@@ -16,7 +16,12 @@ jobs:
       - uses: actions/setup-node@v3
         with:
             node-version: 16.x
+      - name: Get Diff
+        uses: technote-space/get-diff-action@v5
+        with:
+          subdir: js
       - name: npm install
+        if: steps.diff.outputs.diff-count > 0
         run: | 
           npm install
       - name: webpack build

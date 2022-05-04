@@ -6,7 +6,6 @@
     <title>TOMOLOGO</title>
     <meta name="twitter:title" content="TOMOLOGO" />
     <meta name="twitter:image" content="https://image-tomologo.wisd.ooo/LOGO-TWITTER.png"/>
-    <script src="<?php bloginfo('template_url')?>/bundle.js" defer ></script>
 </head>
 
 <body>
