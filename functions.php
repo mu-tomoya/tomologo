@@ -102,3 +102,4 @@ function output_breadcrumb() {
 add_filter('navigation_markup_template', 'custom_pagination_html');
 add_filter('transition_post_status','tweet_post_article',1,3);
 add_filter( 'rest_endpoints', 'filter_rest_endpoints', 10, 1 );
+add_filter('wp_calculate_image_srcset_meta', '__return_null');
